@@ -1,7 +1,7 @@
 (function(global, $) {
 
-    var Stuff = function(firstName, lastName, language) {
-        return new Stuff.init(firstName, lastName, language);
+    var Gamma = function(firstName, lastName, language) {
+        return new Gamma.init(firstName, lastName, language);
     }
 
     let supportedLangs = ['en', 'es'];
@@ -21,7 +21,7 @@
         es: 'Inicio sesion'
     };
 
-    Stuff.prototype = {
+    Gamma.prototype = {
 
         fullName: function() {
             return this.firstName + ' ' + this.lastName;
@@ -73,15 +73,15 @@
 
     };
 
-    Stuff.init = function(firstName, lastName, language) {
+    Gamma.init = function(firstName, lastName, language) {
         var self = this;
         self.firstName = firstName || "";
         self.lastName = lastName || "";
         self.language = language || "en";
     }
 
-    Stuff.init.prototype = Stuff.prototype;
+    Gamma.init.prototype = Gamma.prototype;
 
-    global.Stuff = global.Rx = global.rx = global.shiz = Stuff;
+    global.Gamma = global.Rx = global.rx = global.shiz = Gamma;
 
 }(window, $));
