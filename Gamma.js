@@ -89,14 +89,23 @@
             return style.sheet;
         },
 
-        toCelsius(f) {
-            return (5/9) * (f-32);
+        // On the fly Temperature change
+        toCelsius(f, k) {
+            return  [(f-32) * (5/9), (k - 273.15)];
         },
 
+        toFahrenheit(c, k) {
+            return [(c*9/5+32), ((k - 273.15) * 9/5 + 32)];
+        },
+
+        toKelvin(c, f) {
+            return [(c + 273.15), ((f-32) * (5/9) + 273.15)];
+        },
+
+        // Allows enter button on keyboard to submit new task
         enterKey(){
-            // Allows enter button on keyboard to submit new task
-                // To make this work you need to add the input class to your input
-                // And add the button class to your button 
+            // To make this work you need to add the input class to your input
+            // And add the button class to your button 
             document.querySelector(".input").addEventListener("keyup", function(event) {
                 event.preventDefault();
                 if (event.keyCode == 13) {
@@ -104,7 +113,6 @@
                 }
             });
         }
-
     };
 
     Gamma.init = function(firstName, lastName, language, age, gender, weight) {

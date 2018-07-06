@@ -11,7 +11,8 @@ g.sheet().insertRule("header { float: left; opacity: 0.8; }");
 
 function submitTemp() {
     var x = document.getElementById('fahrenheit').value;
-    document.getElementById('tempResult').innerHTML.setLang('es') =  ababa.toCelsius(x);
+    var y = 50;
+    document.getElementById('tempResult').innerHTML =  rx().toFahrenheit(y, x);
 };
 
 function FigureBMI(form,meters,kilograms) {
