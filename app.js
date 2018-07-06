@@ -7,7 +7,8 @@ g.greet().setLang('en').greet(true);
 
 g.sheet().insertRule("header { float: left; opacity: 0.8; }");
 
-
+var lol = document.getElementById('bmichert');
+rx().bmiChart(lol);
 
 function submitTemp() {
     var x = document.getElementById('fahrenheit').value;
@@ -15,11 +16,7 @@ function submitTemp() {
     document.getElementById('tempResult').innerHTML =  rx().toFahrenheit(y, x);
 };
 
-function FigureBMI(form,meters,kilograms) {
-    Square=meters*meters 
-    form.calcval.value=kilograms/Square
-};
-if(window!=window.top)top.location.href=location.href;
+
 
 
 // Going into gamma.js!!!

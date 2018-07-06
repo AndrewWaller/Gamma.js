@@ -11,6 +11,42 @@
 
         <div id="tempResult"></div>
 
+
+        <!-- Line -->
+        <hr width="100%">
+        <!-- Calculator html -->
+        <center>
+            <noscript>
+                <p>
+                    <font color="#FF0000">you must “Enable JavaScript” to operate this program</font>
+                </p>
+            </noscript>
+            <p></p>
+            <center>
+                <form id="bmi" name="bmi">
+                    <table border width="60%">
+                        <tr>
+                            <td>Height in <input name="meters" size="5" type="text"> Meters</td>
+                            <td>Weight in <input name="kilograms" size="5" type="text"> Kg</td>
+                        </tr>
+                    </table>
+                    <p>
+                            <input name="calc" onclick="BMI(this.form, this.form.meters.value, this.form.kilograms.value)" type="button" value=" Calculate your BMI ">
+                    </p>
+                    <p>your calculated BMI is
+                         <input name="calcval" size="5" type="text">
+                    </p>
+                </form>
+            </center>
+        </center>
+        <!-- Line -->
+        <hr width="100%">
+
+        <div id="bmichert"></div>
+
+        
+
+        
         <script src="jquery-3.3.1.min.js"></script>
         <script src="Gamma.js"></script>
         <script src="app.js"></script>
