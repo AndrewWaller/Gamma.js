@@ -91,6 +91,18 @@
 
         toCelsius(f) {
             return (5/9) * (f-32);
+        },
+
+        enterKey(){
+            // Allows enter button on keyboard to submit new task
+                // To make this work you need to add the input class to your input
+                // And add the button class to your button 
+            document.querySelector(".input").addEventListener("keyup", function(event) {
+                event.preventDefault();
+                if (event.keyCode == 13) {
+                    document.querySelector(".button").click();
+                }
+            });
         }
 
     };
