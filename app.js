@@ -8,13 +8,18 @@ g.greet().setLang('en').greet(true);
 
 g.sheet().insertRule("header { float: left; opacity: 0.8; }");
 
-var x = document.getElementById('fahrenheit').value;
-submitTemp() {
-    document.getElementById('tempResult').innerHTML =  x.toCelsius(x)
+
+
+function submitTemp() {
+    console.log('lol');
+
+    var x = document.getElementById('fahrenheit').value;
+    
+    document.getElementById('tempResult').innerHTML =  g.toCelsius(x);
     console.log(x);
 };
 
-FigureBMI(form,meters,kilograms) {
+function FigureBMI(form,meters,kilograms) {
     Square=meters*meters 
     form.calcval.value=kilograms/Square
 };
