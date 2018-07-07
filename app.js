@@ -1,4 +1,3 @@
-rx().enterKey();
 var g = rx("john", "daniel", "lewis");
 
 g.greet().setLang('es').greet(false);
@@ -16,8 +15,10 @@ function submitTemp() {
     document.getElementById('tempResult').innerHTML =  rx().toFahrenheit(y, x);
 };
 
+var ura = rx().getAbsoluteUrl('https://davidwalsh.name/');
+ console.log(ura);
 
-
+ rx().getBMI(1.8, 75);
 
 // Going into gamma.js!!!
 
