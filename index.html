@@ -31,10 +31,10 @@
                         </tr>
                     </table>
                     <p>
-                            <input name="calc" onclick="BMI(this.form, this.form.meters.value, this.form.kilograms.value)" type="button" value=" Calculate your BMI ">
+                            <input name="calc" onclick="submitBmi()" type="button" value=" Calculate your BMI ">
                     </p>
                     <p>your calculated BMI is
-                         <input name="calcval" size="5" type="text">
+                         <div id="bmiResult"></div>
                     </p>
                 </form>
             </center>

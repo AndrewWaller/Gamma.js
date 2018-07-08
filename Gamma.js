@@ -90,12 +90,6 @@
         },
 
         getBMI: function(height, weight, heightunits, weightunits) {
-           /* // user inputs
-            var height = Number(document.getElementById("height").value);
-            var heightunits = document.getElementById("heightunits").value;
-            var weight = Number(document.getElementById("weight").value);
-            var weightunits = document.getElementById("weightunits").value;
-*/
 
             //Convert all units to metric
             if (heightunits == "inches") height /= 39.3700787;
@@ -103,12 +97,9 @@
 
             //Perform calculation
             var BMI = weight/Math.pow(height,2);
-            console.log(Math.round(BMI * 100) / 100);
-            return;
+            return [Math.round(BMI * 100) / 100];
             /*
             //Display result of calculation
-            document.getElementById("output").innerText = Math.round(BMI * 100) / 100;
-
             var output = Math.round(BMI * 100) / 100
             if (output < 18.5)
                 document.getElementById("comment").innerText = "Underweight";

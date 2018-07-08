@@ -15,10 +15,16 @@ function submitTemp() {
     document.getElementById('tempResult').innerHTML =  rx().toFahrenheit(y, x);
 };
 
+function submitBmi() {
+    document.getElementById('bmiResult').innerHTML = rx().getBMI(1.8, 75);
+};
+
+
+
 var ura = rx().getAbsoluteUrl('https://davidwalsh.name/');
  console.log(ura);
 
- rx().getBMI(1.8, 75);
+
 
 // Going into gamma.js!!!
 
