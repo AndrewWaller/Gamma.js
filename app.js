@@ -19,7 +19,9 @@ function submitBmi() {
     document.getElementById('bmiResult').innerHTML = rx().getBMI(1.8, 75);
 };
 
+rx().log();
 
+rx().simpleCalculator();
 
 var ura = rx().getAbsoluteUrl('https://davidwalsh.name/');
  console.log(ura);

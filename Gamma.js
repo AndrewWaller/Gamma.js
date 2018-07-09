@@ -24,25 +24,25 @@
 
     Gamma.prototype = {
 
-        fullName: function() {
+        fullName() {
             return this.firstName + ' ' + this.lastName;
         },
 
-        validate: function() {
+        validate() {
             if (supportedLangs.indexOf(this.language) === -1) {
                 throw "Invalid language";
             }
         },
 
-        greeting: function() {
+        greeting() {
             return greetings[this.language] + ' ' + this.firstName + '!';
         },
 
-        formalGreeting: function() {
+        formalGreeting() {
             return formalGreetings[this.language] + ', ' + this.fullName();
         },
 
-        greet: function(formal) {
+        greet(formal) {
             var msg;
             if (formal) {
                 msg = this.formalGreeting();
@@ -57,14 +57,14 @@
             return this;
         },
 
-        log: function() {
+        log() {
             if (console) {
                 console.log(logMessages[this.language] + ': ' + this.fullName());
             }
             return this;
         },
 
-        setLang: function(lang) {
+        setLang(lang) {
             this.language = lang;
             this.validate();
             return this;
@@ -79,7 +79,7 @@
             };
         }(),
 
-        sheet: function() {
+        sheet() {
             // Create the <style> tag
             var style = document.createElement('style');
             // WebKit hack :(
@@ -89,28 +89,121 @@
             return style.sheet;
         },
 
-        getBMI: function(height, weight, heightunits, weightunits) {
-
+        getBMI(height, weight, heightunits, weightunits) {
             //Convert all units to metric
             if (heightunits == "inches") height /= 39.3700787;
             if (weightunits == "lb") weight /= 2.20462;
-
             //Perform calculation
             var BMI = weight/Math.pow(height,2);
-            return [Math.round(BMI * 100) / 100];
-            /*
+            var BMI = Math.round(BMI * 100) / 100
             //Display result of calculation
-            var output = Math.round(BMI * 100) / 100
-            if (output < 18.5)
-                document.getElementById("comment").innerText = "Underweight";
-            else if (output >= 18.5 && output <= 25)
-                document.getElementById("comment").innerText = "Normal";
-            else if (output >= 25 && output <= 30)
-                document.getElementById("comment").innerText = "Obese";
-            else if (output > 30)
-                document.getElementById("comment").innerText = "Overweight";
-            // document.getElementById("answer").value = output; 
-        */
+            if (BMI < 18.5)
+                return BMI +"<br>"+ "Underweight";
+            else if (BMI >= 18.5 && BMI <= 25)
+                return BMI +"<br>"+ "Normal";
+            else if (BMI >= 25 && BMI <= 30)
+                return BMI +"<br>"+  "Obese";
+            else if (BMI > 30)
+                return BMI +"<br>"+ "Overweight";
+        },
+
+        simpleCalculator() {
+            var FKeyPad = document.Keypad;
+            var Accumulate = 0;
+            var FlagNewNum = false;
+            var PendingOp = "";
+            function NumPressed(Num) {
+                if (FlagNewNum) {
+                    FKeyPad.ReadOut.value = Num;
+                    FlagNewNum = false;
+                } else {
+                    if (FKeyPad.ReadOut.value == "0") FKeyPad.ReadOut.value = Num;
+                    else FKeyPad.ReadOut.value += Num;
+                }
+            }
+            function Operation(Op) {
+                var Readout = FKeyPad.ReadOut.value;
+                if (FlagNewNum && PendingOp != "=");
+                else {
+                    FlagNewNum = true;
+                    if ('+' == PendingOp) Accumulate += parseFloat(Readout);
+                    else if ('-' == PendingOp) Accumulate -= parseFloat(Readout);
+                    else if ('/' == PendingOp) Accumulate /= parseFloat(Readout);
+                    else if ('*' == PendingOp) Accumulate *= parseFloat(Readout);
+                    else Accumulate = parseFloat(Readout);
+                    FKeyPad.ReadOut.value = Accumulate;
+                    PendingOp = Op;
+                }
+            }
+            function Decimal() {
+                var curReadOut = FKeyPad.ReadOut.value;
+                if (FlagNewNum) {
+                    curReadOut = "0.";
+                    FlagNewNum = false;
+                } else {
+                    if (curReadOut.indexOf(".") == -1) curReadOut += ".";
+                }
+                FKeyPad.ReadOut.value = curReadOut;
+            }
+            function ClearEntry() {
+                FKeyPad.ReadOut.value = "0";
+                FlagNewNum = true;
+            }
+            function Clear() {
+                Accumulate = 0;
+                PendingOp = "";
+                ClearEntry();
+            }
+            function Neg() {
+                FKeyPad.ReadOut.value = parseFloat(FKeyPad.ReadOut.value) * -1;
+            }
+            function Percent() {
+                FKeyPad.ReadOut.value = (parseFloat(FKeyPad.ReadOut.value) / 100) * parseFloat(Accumulate);
+            }
+            document.getElementById('simpleCalculator').innerHTML = `<form action="" id="Keypad" name="Keypad">
+            <b></b>
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="middle" colspan="3"><b><input name="ReadOut" size="24" type="text" value="0" width="100%"></b></td>
+                    <td></td>
+                    <td><input name="btnClear" onclick="Clear()" type="button" value=" C "></td>
+                    <td><input name="btnClearEntry" onclick="ClearEntry()" type="button" value=" CE "></td>
+                </tr>
+                <tr>
+                    <td><input name="btnSeven" onclick="NumPressed(7)" type="button" value=" 7 "></td>
+                    <td><input name="btnEight" onclick="NumPressed(8)" type="button" value=" 8 "></td>
+                    <td><input name="btnNine" onclick="NumPressed(9)" type="button" value=" 9 "></td>
+                    <td></td>
+                    <td><input name="btnNeg" onclick="Neg()" type="button" value=" +/- "></td>
+                    <td><input name="btnPercent" onclick="Percent()" type="button" value=" % "></td>
+                </tr>
+                <tr>
+                    <td><input name="btnFour" onclick="NumPressed(4)" type="button" value=" 4 "></td>
+                    <td><input name="btnFive" onclick="NumPressed(5)" type="button" value=" 5 "></td>
+                    <td><input name="btnSix" onclick="NumPressed(6)" type="button" value=" 6 "></td>
+                    <td></td>
+                    <td align="middle"><input name="btnPlus" onclick="Operation('+')" type="button" value=" + "></td>
+                    <td align="middle"><input name="btnMinus" onclick="Operation('-')" type="button" value=" - "></td>
+                </tr>
+                <tr>
+                    <td><input name="btnOne" onclick="NumPressed(1)" type="button" value=" 1 "></td>
+                    <td><input name="btnTwo" onclick="NumPressed(2)" type="button" value=" 2 "></td>
+                    <td><input name="btnThree" onclick="NumPressed(3)" type="button" value=" 3 "></td>
+                    <td></td>
+                    <td align="middle"><input name="btnMultiply" onclick="Operation('*')" type="button" value=" * "></td>
+                    <td align="middle"><input name="btnDivide" onclick="Operation('/')" type="button" value=" / "></td>
+                </tr>
+                <tr>
+                    <td><input name="btnZero" onclick="NumPressed(0)" type="button" value=" 0 "></td>
+                    <td><input name="btnDecimal" onclick="Decimal()" type="button" value=" . "></td>
+                    <td colspan="3"></td>
+                    <td><input name="btnEquals" onclick="Operation('=')" type="button" value=" = "></td>
+                </tr>
+            </table>
+        </form>`;
         },
 
         bmiChart(div) {
