@@ -19,7 +19,7 @@ function submitBmi() {
     document.getElementById('bmiResult').innerHTML = rx().getBMI(1.8, 75);
 };
 
-rx().log();
+rx().log("logged", "*");
 
 rx().simpleCalculator();
 

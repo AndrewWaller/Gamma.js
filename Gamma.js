@@ -57,13 +57,6 @@
             return this;
         },
 
-        log() {
-            if (console) {
-                console.log(logMessages[this.language] + ': ' + this.fullName());
-            }
-            return this;
-        },
-
         setLang(lang) {
             this.language = lang;
             this.validate();
@@ -221,6 +214,12 @@
 
         toKelvin(c, f) {
             return [(c + 273.15), ((f-32) * (5/9) + 273.15)];
+        },
+
+        log(message, separator) {
+            console.log(separator);
+            console.log(message);
+            console.log(separator);
         },
 
         // Allows enter button on keyboard to submit new task
