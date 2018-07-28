@@ -6,6 +6,8 @@ g.greet().setLang('en').greet(true);
 
 g.sheet().insertRule("header { float: left; opacity: 0.8; }");
 
+rx().enterKey("#fahrenheit", "#button")
+
 var lol = document.getElementById('bmichert');
 rx().bmiChart(lol);
 
@@ -21,14 +23,29 @@ function submitBmi() {
 
 rx().log("logged", "*");
 
+let temp = rx().toCelsius(50);
+rx().log(temp, '*')
+
 rx().simpleCalculator();
+
+
+
 
 var ura = rx().getAbsoluteUrl('https://davidwalsh.name/');
  console.log(ura);
 
 
+ if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+    if (document.cookie.indexOf("iphone_redirect=false") == -1) {
+        window.location = "http://m.espn.go.com/wireless/?iphone&i=COMR";
+    }
+}
 
-// Going into gamma.js!!!
+//rx().getUserIP();
+rx().getUserIP(function(ip){
+    // alert("Got IP! :" + ip);
+     var lol = document.getElementById('puip');
+     console.log(ip);
+ });
 
-
-
+ // Going into gamma.js!!!
