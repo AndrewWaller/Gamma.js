@@ -1,0 +1,26 @@
+{
+  "name": "gamma",
+  "version": "1.0.0",
+  "description": "personal JS Library",
+  "main": "app.js",
+  "dependencies": {
+    "webpack": "^4.16.5",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewWaller/Gamma.js.git"
+  },
+  "author": "Adrw4",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndrewWaller/Gamma.js/issues"
+  },
+  "homepage": "https://github.com/AndrewWaller/Gamma.js#readme"
+}
