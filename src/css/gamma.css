@@ -1,6 +1,67 @@
-body::-webkit-scrollbar {
-    width: 1em;
+.rgb-text {
+	-webkit-animation:text-colorchange 20s infinite alternate;
+    -moz-animation:text-colorchange 20s infinite alternate;
+    animation:text-colorchange 20s infinite alternate;
 }
-body::-webkit-scrollbar-thumb {
-    background-color: green;
+
+@-webkit-keyframes text-colorchange {
+	0% {color: rgb(255,187,120);}
+	10% {color: rgb(255,152,150);}
+	20% {color: rgb(197,176,213);}
+	30% {color: rgb(174,199,232);}
+	40% {color: rgb(152,223,138);}
+	50% {color: rgb(247,182,210);}
+	60% {color: rgb(219,219,141);}
+	70% {color: rgb(199,199,199);}
+	80% {color: rgb(196,156,148);}
+	90% {color: rgb(158,218,229);}
+	100% {color: rgb(247,182,210);}
+}
+
+@keyframes text-colorchange {
+	0% {color: rgb(255,187,120);}
+	10% {color: rgb(255,152,150);}
+	20% {color: rgb(197,176,213);}
+	30% {color: rgb(174,199,232);}
+	40% {color: rgb(152,223,138);}
+	50% {color: rgb(247,182,210);}
+	60% {color: rgb(219,219,141);}
+	70% {color: rgb(199,199,199);}
+	80% {color: rgb(196,156,148);}
+	90% {color: rgb(158,218,229);}
+	100% {color: rgb(247,182,210);}
+}
+
+.rgb-background {
+	-webkit-animation:colorchange 20s infinite alternate;
+    -moz-animation:colorchange 20s infinite alternate;
+    animation:colorchange 20s infinite alternate;
+}
+
+@-webkit-keyframes colorchange {
+	0% {background-color: rgb(255,187,120);}
+	10% {background-color: rgb(255,152,150);}
+	20% {background-color: rgb(197,176,213);}
+	30% {background-color: rgb(174,199,232);}
+	40% {background-color: rgb(152,223,138);}
+	50% {background-color: rgb(247,182,210);}
+	60% {background-color: rgb(219,219,141);}
+	70% {background-color: rgb(199,199,199);}
+	80% {background-color: rgb(196,156,148);}
+	90% {background-color: rgb(158,218,229);}
+	100% {background-color: rgb(247,182,210);}
+}
+
+@keyframes colorchange {
+	0% {background-color: rgb(255,187,120);}
+	10% {background-color:rgb(255,152,150);}
+	20% {background-color: rgb(197,176,213);}
+	30% {background-color: rgb(174,199,232);}
+	40% {background-color: rgb(152,223,138);}
+	50% {background-color: rgb(247,182,210);}
+	60% {background-color: rgb(219,219,141);}
+	70% {background-color: rgb(199,199,199);}
+	80% {background-color: rgb(196,156,148);}
+	90% {background-color: rgb(158,218,229);}
+	100% {background-color: rgb(247,182,210);}
 }

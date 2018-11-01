@@ -1,9 +1,12 @@
 <html>
+    <head>
+        <!-- <link rel="stylesheet" href="./test.css"> -->
+    </head>
     <body>
 
         <div>
             <input class="input" id="fahrenheit">
-            <button type="submit" onclick="submitTemp()" class="" id="button">Click</button>
+            <button type="submit" onclick="submitTemp()" class="rgb-background" id="button">Click</button>
         </div>
 
         <div id="tempResult"></div>
@@ -21,7 +24,7 @@
             <p></p>
             <center>
                 <form id="bmi" name="bmi">
-                    <table border width="60%">
+                    <table border-width="60%">
                         <tr>
                             <td>Height in <input name="meters" size="5" type="text"> Meters</td>
                             <td>Weight in <input name="kilograms" size="5" type="text"> Kg</td>
@@ -43,9 +46,15 @@
 
         <div id="simpleCalculator"></div>
 
-        
+        <img id="logoCircle" data-size="5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Tumblr.svg/1024px-Tumblr.svg.png" alt="">
+
+        <img id="logoRoundedSquare" data-size="5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Tumblr.svg/1024px-Tumblr.svg.png" alt="">
+
+        <img id="logoSquare" data-size="5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Tumblr.svg/1024px-Tumblr.svg.png" alt="">
+
         <script src="../jquery-3.3.1.min.js"></script>
         <script src="../dist/gamma.bundle.js"></script>
-        <script src="test.js"></script>
+        <!-- <script src="../src/js/gamma.js"></script> -->
+        <script src="./test.js"></script>
     </body>
 </html>

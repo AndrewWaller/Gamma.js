@@ -1,9 +1,9 @@
 
 
-rx().enterKey("#fahrenheit", "#button")
+//rx().enterKey("#fahrenheit", "#button")
 
 var lol = document.getElementById('bmichert');
-rx().bmiChart(lol);
+// rx().bmiChart(lol);
 
 function submitTemp() {
     var x = document.getElementById('fahrenheit').value;
@@ -18,7 +18,7 @@ function submitBmi() {
 rx().log("logged", "*");
 
 let temp = rx().toCelsius(50);
-rx().log(temp, '*')
+rx().log(temp, '*');
 
 
 
@@ -31,17 +31,25 @@ var ura = rx().getAbsoluteUrl('https://davidwalsh.name/');
  if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
     if (document.cookie.indexOf("iphone_redirect=false") == -1) {
         window.location = "http://m.espn.go.com/wireless/?iphone&i=COMR";
-    }
-}
+    };
+};
 
 //rx().getUserIP();
-rx().getUserIP(function(ip){
+// rx().getUserIP(function(ip){
      //alert("Got IP! :" + ip);
-     var lol = document.getElementById('puip');
-     console.log(ip);
- });
+    //  var lol = document.getElementById('puip');
+    //  console.log(ip);
+// });
 
 
  // Going into gamma.js!!!
 
 rx().keyLogger();
+
+
+
+
+rx().logoCircle();
+rx().logoRoundedSquare();
+rx().logoSquare();
+

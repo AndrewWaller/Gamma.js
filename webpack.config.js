@@ -6,5 +6,27 @@ module.exports = {
     filename: 'gamma.bundle.js',
     path: path.resolve(__dirname, './dist')
   },
-  watch: true
+  watch: true,
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" }
+        ]
+      },
+      
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: { 
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        } 
+      }
+    ]
+  }
 };
